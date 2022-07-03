@@ -1,7 +1,7 @@
 {
   "name": "@borodutch/smart-contract-starter",
   "version": "0.0.1",
-  "description": "A starter for Solidity smart contracts for Ethereum ",
+  "description": "A starter for Solidity smart contracts for Ethereum",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Borodutch/smart-contract-starter"
