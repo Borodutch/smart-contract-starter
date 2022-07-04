@@ -1,5 +1,7 @@
 # Solidity Ethereum smart contract starter
 
+Heavily influenced by the [Big Whale Labs repos](https://github.com/BigWhaleLabs).
+
 ## Usage
 
 1. Clone the repository with `git clone git@github.com:Borodutch/smart-contract-starter`
