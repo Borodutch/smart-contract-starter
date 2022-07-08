@@ -1,5 +1,5 @@
-import { expect } from 'chai'
 import { ethers } from 'hardhat'
+import { expect } from 'chai'
 
 describe('MyERC721 contract tests', () => {
   before(async function () {
