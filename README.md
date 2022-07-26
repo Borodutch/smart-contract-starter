@@ -6,7 +6,7 @@ Heavily influenced by the [Big Whale Labs repos](https://github.com/BigWhaleLabs
 
 1. Clone the repository with `git clone git@github.com:Borodutch/smart-contract-starter`
 2. Install the dependencies with `yarn`
-3. Add environment vareables to your `.env` file
+3. Add environment variables to your `.env` file
 4. Run the scripts below
 
 ## Environment variables
