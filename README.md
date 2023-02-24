@@ -28,4 +28,4 @@ Also check out the `.env.sample` file for more information.
 - `yarn eth-lint` — runs the linter for the solidity contract
 - `yarn lint` — runs all the linters
 - `yarn prettify` — prettifies the code in th project
-- `yarn release` — relases the `typechain` directory to NPM
+- `yarn release` — releases the `typechain` directory to NPM
