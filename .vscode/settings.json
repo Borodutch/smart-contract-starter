@@ -16,5 +16,6 @@
   },
   "[solidity]": {
     "editor.defaultFormatter": "NomicFoundation.hardhat-solidity"
-  }
+  },
+  "cSpell.words": ["nomicfoundation"]
 }

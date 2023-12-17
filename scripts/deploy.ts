@@ -1,47 +1,52 @@
+import { ContractTransactionResponse } from 'ethers'
+import { HardhatEthersSigner } from '@nomicfoundation/hardhat-ethers/signers'
 import { ethers, run } from 'hardhat'
-import { utils } from 'ethers'
+
+async function printSignerInfo(signer: HardhatEthersSigner) {
+  const address = await signer.getAddress()
+  const balance = await ethers.provider.getBalance(signer)
+  console.log('Deploying contracts with the account:', address)
+  console.log('Account balance:', ethers.formatEther(balance))
+}
+
+function printDeploymentTransaction(
+  deploymentTransaction: ContractTransactionResponse
+) {
+  console.log(
+    'Deploy tx gas price:',
+    ethers.formatEther(deploymentTransaction.gasPrice || 0)
+  )
+  console.log(
+    'Deploy tx gas limit:',
+    ethers.formatEther(deploymentTransaction.gasLimit)
+  )
+}
 
 async function main() {
-  const [deployer] = await ethers.getSigners()
-
-  // Deploy the contract
-  console.log('Deploying contracts with the account:', deployer.address)
-  console.log(
-    'Account balance:',
-    utils.formatEther(await deployer.getBalance())
-  )
-
+  // Get network
   const provider = ethers.provider
-  const { chainId } = await provider.getNetwork()
-  const chains = {
-    1: 'mainnet',
-    3: 'ropsten',
-    4: 'rinkeby',
-    5: 'goerli',
-  } as { [chainId: number]: string }
-  const chainName = chains[chainId]
-
+  const { name: chainName } = await provider.getNetwork()
+  console.log('Deploying to chain:', chainName)
+  // Get signer
+  const [deployer] = await ethers.getSigners()
+  await printSignerInfo(deployer)
+  // Deploy contract
   const contractName = 'MyERC721'
   const contractSymbol = 'MYERC721'
   console.log(`Deploying ${contractName}...`)
   const Contract = await ethers.getContractFactory(contractName)
-  const contract = await Contract.deploy(contractName, contractSymbol)
-
-  console.log(
-    'Deploy tx gas price:',
-    utils.formatEther(contract.deployTransaction.gasPrice || 0)
-  )
-  console.log(
-    'Deploy tx gas limit:',
-    utils.formatEther(contract.deployTransaction.gasLimit)
-  )
-  await contract.deployed()
-  const address = contract.address
-
+  const contract = await Contract.deploy(contractName, contractSymbol, deployer)
+  const deploymentTransaction = contract.deploymentTransaction()
+  if (!deploymentTransaction) {
+    throw new Error('Deployment transaction is null')
+  }
+  printDeploymentTransaction(deploymentTransaction)
+  await contract.waitForDeployment()
+  const address = await contract.getAddress()
   console.log('Contract deployed to:', address)
+  // Wait for the chain to update
   console.log('Wait for 1 minute to make sure blockchain is updated')
   await new Promise((resolve) => setTimeout(resolve, 60 * 1000))
-
   // Try to verify the contract on Etherscan
   console.log('Verifying contract on Etherscan')
   try {
@@ -55,16 +60,9 @@ async function main() {
       err instanceof Error ? err.message : err
     )
   }
-
   // Print out the information
   console.log(`${contractName} deployed and verified on Etherscan!`)
   console.log('Contract address:', address)
-  console.log(
-    'Etherscan URL:',
-    `https://${
-      chainName !== 'mainnet' ? `${chainName}.` : ''
-    }etherscan.io/address/${address}`
-  )
 }
 
 main().catch((error) => {
