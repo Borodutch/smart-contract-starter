@@ -26,7 +26,7 @@
     "eth-lint": "yarn solhint 'contracts/**/*.sol'",
     "lint": "prettier --check . && eslint --max-warnings 0 --ext ts scripts test && yarn eth-lint",
     "release": "np",
-    "prepublishOnly": "yarn build && yarn tsc"
+    "prepublishOnly": "yarn build && yarn tsc --skipLibCheck"
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-chai-matchers": "^2.0.2",
