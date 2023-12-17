@@ -5,6 +5,6 @@
     "hnw.vscode-auto-open-markdown-preview",
     "naumovs.color-highlight",
     "oderwat.indent-rainbow",
-    "juanblanco.solidity"
+    "nomicfoundation.hardhat-solidity"
   ]
 }
