@@ -52,7 +52,7 @@ async function main() {
   try {
     await run('verify:verify', {
       address,
-      constructorArguments: [contractName, contractSymbol],
+      constructorArguments: [contractName, contractSymbol, deployer.address],
     })
   } catch (err) {
     console.log(
