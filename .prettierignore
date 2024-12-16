@@ -6,3 +6,4 @@ gasReporterOutput.json
 typechain
 .yarn
 dist
+*.mjs
