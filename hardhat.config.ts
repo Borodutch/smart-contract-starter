@@ -16,7 +16,7 @@ const { CONTRACT_OWNER_PRIVATE_KEY, ETH_RPC, ETHERSCAN_API_KEY } = cleanEnv(
     CONTRACT_OWNER_PRIVATE_KEY: str({
       default: randomPrivateKey,
     }),
-    ETH_RPC: str(),
+    ETH_RPC: str({ default: '' }),
     ETHERSCAN_API_KEY: str({ default: '' }),
   }
 )
