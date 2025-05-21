@@ -16,7 +16,6 @@ Heavily influenced by the [Big Whale Labs repos](https://github.com/BigWhaleLabs
 | `ETHERSCAN_API_KEY`          | Etherscan API key                                         |
 | `ETH_RPC`                    | Ethereum RPC URL                                          |
 | `CONTRACT_OWNER_PRIVATE_KEY` | Private key of the contract owner to deploy the contracts |
-| `COINMARKETCAP_API_KEY`      | Coinmarketcap API key                                     |
 
 Also check out the `.env.sample` file for more information.
 
