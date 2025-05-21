@@ -1,11 +1,20 @@
-name: Build and lint code
+name: Build and lint
 on:
-  pull_request:
-    types: [synchronize, opened]
-env:
-  NODE_ENV: test
+  push:
+    branches:
+      - main
 jobs:
-  build-and-lint-code:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - uses: Borodutch/build-and-lint-code@v1.0.3
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install modules
+        run: yarn
+        shell: bash
+      - name: Build code
+        run: yarn build
+        shell: bash
+      - name: Lint code
+        run: yarn lint
+        shell: bash
