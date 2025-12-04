@@ -60,7 +60,7 @@ __metadata:
     "@nomicfoundation/hardhat-ignition-viem": "npm:^0.15.11"
     "@nomicfoundation/hardhat-network-helpers": "npm:^1.0.12"
     "@nomicfoundation/hardhat-toolbox-viem": "npm:^3.0.0"
-    "@nomicfoundation/hardhat-verify": "npm:^2.0.13"
+    "@nomicfoundation/hardhat-verify": "npm:^2.1.1"
     "@nomicfoundation/hardhat-viem": "npm:^2.0.6"
     "@nomicfoundation/ignition-core": "npm:^0.15.11"
     "@openzeppelin/contracts": "npm:^5.3.0"
@@ -1081,9 +1081,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nomicfoundation/hardhat-verify@npm:^2.0.13":
-  version: 2.0.13
-  resolution: "@nomicfoundation/hardhat-verify@npm:2.0.13"
+"@nomicfoundation/hardhat-verify@npm:^2.1.1":
+  version: 2.1.3
+  resolution: "@nomicfoundation/hardhat-verify@npm:2.1.3"
   dependencies:
     "@ethersproject/abi": "npm:^5.1.2"
     "@ethersproject/address": "npm:^5.0.2"
@@ -1095,21 +1095,21 @@ __metadata:
     table: "npm:^6.8.0"
     undici: "npm:^5.14.0"
   peerDependencies:
-    hardhat: ^2.0.4
-  checksum: 10c0/391b35211646ed9efd91b88229c09c8baaa688caaf4388e077b73230b36cd7f86b04639625b0e8ebdc070166f49494c3bd32834c31ca4800db0936ca6db96ee2
+    hardhat: ^2.26.0
+  checksum: 10c0/daf420f4fdbbcbfe117077c5950d39ba5126bc57abc360ba2de55756bce4a455fe53f61ad0edcd04c9e2440cc3f8197631c586cfe5ad781efa5da2f79d7ccd19
   languageName: node
   linkType: hard
 
 "@nomicfoundation/hardhat-viem@npm:^2.0.6":
-  version: 2.0.6
-  resolution: "@nomicfoundation/hardhat-viem@npm:2.0.6"
+  version: 2.1.3
+  resolution: "@nomicfoundation/hardhat-viem@npm:2.1.3"
   dependencies:
     abitype: "npm:^0.9.8"
     lodash.memoize: "npm:^4.1.2"
   peerDependencies:
-    hardhat: ^2.17.0
+    hardhat: ^2.26.0
     viem: ^2.7.6
-  checksum: 10c0/81542d78399a38b504b4ce4ff7a5d57db2708d6ed7eef0c23f482e063e180f605c5b54e309f4aebe292896c09687006c9d2c92f334da80d73dc48afe68ca950e
+  checksum: 10c0/6d70ffc1a758f534b563cd883d6a010d963e463e0fd351c21c05ac80e159f0f98fac4b52cb5be6e37bcc4cda2fe9c01bfd779b84bed87de27caf11fdc2fa86dc
   languageName: node
   linkType: hard
 

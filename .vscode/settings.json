@@ -17,6 +17,6 @@
   "[solidity]": {
     "editor.defaultFormatter": "NomicFoundation.hardhat-solidity"
   },
-  "cSpell.words": ["nomicfoundation", "viem"],
+  "cSpell.words": ["nomicfoundation", "Reentrancy", "viem"],
   "typescript.tsdk": "node_modules/typescript/lib"
 }
