@@ -2,18 +2,27 @@ name: Build and lint
 on:
   pull_request:
     types: [synchronize, opened]
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Install modules
-        run: yarn
-        shell: bash
-      - name: Build code
-        run: yarn build
-        shell: bash
-      - name: Lint code
-        run: yarn lint
-        shell: bash
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      # node_modules itself is cached: a hit skips the install entirely
+      - id: modules
+        uses: actions/cache@v4
+        with:
+          path: |
+            node_modules
+            .yarn/install-state.gz
+            ~/.cache/hardhat-nodejs
+          key: modules-${{ runner.os }}-22-${{ hashFiles('yarn.lock') }}
+      - if: steps.modules.outputs.cache-hit != 'true'
+        run: yarn install --immutable
+      - run: yarn build
+      - run: yarn lint
