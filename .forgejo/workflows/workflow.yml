@@ -9,11 +9,14 @@ jobs:
   build:
     # Our own PRs run on the Mac runners; outsiders' PRs (AGit via the github bot) stay on Linux
     runs-on: ${{ contains(fromJSON('["backmeupplz","renovate","claude"]'), github.event.pull_request.user.login) && 'macos-latest' || 'ubuntu-latest' }}
+    # yarn 3 caches packages per checkout by default; the global cache persists between runs on the Mac runners
+    env:
+      YARN_ENABLE_GLOBAL_CACHE: true
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: '22'
+          node-version: "22"
       # Linux caches node_modules (a hit skips the install); on the Mac a warm yarn cache installs faster than actions/cache restores
       - id: modules
         if: runner.os == 'Linux'
