@@ -19,14 +19,14 @@
   "main": "dist/typechain/index.js",
   "types": "dist/typechain/index.d.ts",
   "scripts": {
-    "build": "yarn clean && npx hardhat compile",
+    "build": "bun run clean && npx hardhat compile",
     "clean": "npx hardhat clean",
     "test": "npx hardhat test",
     "deploy": "npx hardhat run --network deploy scripts/deploy.ts",
-    "eth-lint": "yarn solhint 'contracts/**/*.sol'",
-    "lint": "prettier --check . && eslint --max-warnings 0 scripts test && yarn eth-lint",
+    "eth-lint": "bun run solhint 'contracts/**/*.sol'",
+    "lint": "prettier --check . && eslint --max-warnings 0 scripts test && bun run eth-lint",
     "release": "np",
-    "prepublishOnly": "yarn build && yarn tsc --skipLibCheck"
+    "prepublishOnly": "bun run build && bun run tsc --skipLibCheck"
   },
   "devDependencies": {
     "@eslint/compat": "^1.2.9",
@@ -70,6 +70,5 @@
     "ts-node": "^10.9.2",
     "typechain": "^8.3.2",
     "typescript": "^5.8.3"
-  },
-  "packageManager": "yarn@4.9.1"
+  }
 }
